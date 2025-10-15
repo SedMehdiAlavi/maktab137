@@ -6,7 +6,6 @@ def fib_generator(n):
         a, b = b, a + b
         count += 1
 
-generator = fib_generator(5)
-print(generator)
-for i in generator:
-    print(i)
+
+for number in fib_generator(7):
+    print(number)

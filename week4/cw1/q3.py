@@ -1,13 +1,16 @@
-# def jjj(*args):
+def enforce_types(type1, type2):
+    def decorator(func):
+        def wrapper(arg1, arg2):
+            if type1 == type(arg1) and type2 == type(arg2):
+                result = func(arg1, arg2)
+                return result
 
+            else:
+                raise TypeError("Type mismatch")
 
-def enforce_types(func):
-    def wrapper(*args, **kwargs):
-        if isinstance(a, int) or isinstance(a, str) and isinstance(b, int):
-            pass
-        else:
-            raise TypeError
-    return wrapper
+        return wrapper
+    return decorator
+
 
 @enforce_types(int, int)
 def add(a, b):
@@ -19,5 +22,5 @@ def repeat_message(message, times):
         print(message)
 
 
-print(add(5, 10))
+print(add(5,10))
 repeat_message("hello", 3)
